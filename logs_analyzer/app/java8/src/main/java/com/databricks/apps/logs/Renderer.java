@@ -1,6 +1,7 @@
 package com.databricks.apps.logs;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 
@@ -106,7 +107,7 @@ public class Renderer implements Serializable {
   }
 
   private void writeOutput(String output) throws IOException {
-    try (Writer out = new BufferedWriter(new FileWriter(Flags.getInstance().getOutputHtmlFile()))) {
+    try (Writer out = Files.newBufferedWriter(Flags.getInstance().getOutputHtmlFile().toPath())) {
       out.write(output);
     }
   }
