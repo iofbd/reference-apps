@@ -36,7 +36,7 @@ public class ApacheAccessLog implements Serializable {
     this.endpoint = endpoint;
     this.protocol = protocol;
     this.responseCode = Integer.parseInt(responseCode);
-    if (contentSize.equals("-")) {
+    if ("-".equals(contentSize)) {
       this.contentSize = 0;
     } else {
       this.contentSize = Long.parseLong(contentSize);
